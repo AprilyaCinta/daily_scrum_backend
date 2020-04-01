@@ -27,5 +27,13 @@ Route::post('login', 'UserController@login');
 // });
 Route::middleware(['jwt.verify'])->group(function(){
     Route::get('user', 'UserController@getAuthenticatedUser');
+
+    //daily scrum
+    Route::get('/daily', 'DailyController@index');
+    Route::get('/daily/{id}', 'DailyController@show');
+    Route::post('/daily', 'DailyController@store');
+    Route::put('/daily/{id}', 'DailyController@update');
+    Route::delete('/daily/{id}', 'DailyController@destroy');
+
 });
 
